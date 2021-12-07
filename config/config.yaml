@@ -1,0 +1,27 @@
+%YAML:1.0
+
+image_width: 1226
+image_height: 370
+
+#SOLO
+onnx_path: "/home/chen/ws/dynamic_ws/src/dynamic_vins/weights/SOLOv2_light_R34_1152x384_cuda102.onnx"
+serialize_path: "./tensorrt_model_1152x384.bin"
+SOLO_NMS_PRE: 500
+SOLO_MAX_PER_IMG: 100
+SOLO_NMS_KERNEL: "gaussian"
+#SOLO_NMS_SIGMA=2.0
+SOLO_NMS_SIGMA: 2.0
+SOLO_SCORE_THR: 0.1
+SOLO_MASK_THR: 0.5
+SOLO_UPDATE_THR: 0.2
+
+segmentor_log_path: "./segmentor_log.txt"
+segmentor_log_level: "debug"
+segmentor_log_flush: "debug"
+
+DATASET_DIR: "/media/chen/EC4A17F64A17BBF0/datasets/kitti/odometry/colors/07/image_2/"
+WARN_UP_IMAGE_PATH: "/home/chen/CLionProjects/Tracking-Solov2-Deepsort/config/kitti.png"
+
+EXTRACTOR_MODEL_PATH: "/home/chen/CLionProjects/Tracking-Solov2-Deepsort/config/ckpt.bin"
+TRACKING_MAX_AGE: 30
+TRACKING_N_INIT: 3
