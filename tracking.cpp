@@ -87,9 +87,11 @@ int main(int argc, char **argv)
                 }
                 auto color = color_map[inst.track_id];
 
-                draw_text(img_raw,fmt::format("{}:{:.2f}",Config::CocoLabelVector[inst.label_id],inst.prob),color,inst.rect.tl());
+                draw_text(img_raw,fmt::format("{}:{:.2f}",Config::CocoLabelVector[inst.label_id],inst.prob),
+                          color,inst.rect.tl());
                 auto box_center = (inst.min_pt + inst.max_pt)/2.;
-                cv::putText(img_raw, std::to_string(inst.track_id), box_center, cv::FONT_HERSHEY_SIMPLEX, 1, color,2);
+                cv::putText(img_raw, std::to_string(inst.track_id), box_center, cv::FONT_HERSHEY_SIMPLEX,
+                            1, color,2);
                 cv::rectangle(img_raw,inst.min_pt,inst.max_pt,color,1);
             }
         }
@@ -98,7 +100,8 @@ int main(int argc, char **argv)
         }
 
         fmt::print("tracker time:{} ms\n",delta_time);
-        cv::putText(img_raw, fmt::format("{} ms",delta_time), cv::Point2d(20,20), cv::FONT_HERSHEY_SIMPLEX, 1,
+        cv::putText(img_raw, fmt::format("{} ms",delta_time), cv::Point2d(20,20),
+                    cv::FONT_HERSHEY_SIMPLEX, 1,
                     cv::Scalar(255,0,0),2);
 
         cv::imshow("raw", img_raw);

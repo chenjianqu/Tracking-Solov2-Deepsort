@@ -1,6 +1,7 @@
 #include <fstream>
 
 #include "Extractor.h"
+#include "../parameters.h"
 
 namespace nn = torch::nn;
 using namespace std;
@@ -125,8 +126,7 @@ void NetImpl::load_form(const std::string &bin_path) {
 }
 
 Extractor::Extractor() {
-    const std::string base_dir="/home/chen/CLionProjects/DeepSort/libtorch-yolov3-deepsort-master/";
-    net->load_form(base_dir+"weights/ckpt.bin");
+    net->load_form(Config::EXTRACTOR_MODEL_PATH);
     net->to(torch::kCUDA);
     net->eval();
 }
