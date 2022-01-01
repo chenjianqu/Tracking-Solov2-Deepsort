@@ -1,6 +1,12 @@
-//
-// Created by chen on 2021/12/1.
-//
+/*******************************************************
+ *
+ * Copyright (C) 2022, Chen Jianqu, Shanghai University
+ *
+ * This file is part of Tracking_Solov2_Deepsort.
+ *
+ * Licensed under the MIT License;
+ * you may not use this file except in compliance with the License.
+ *******************************************************/
 
 #ifndef DYNAMIC_VINS_UTILS_H
 #define DYNAMIC_VINS_UTILS_H

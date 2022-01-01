@@ -1,6 +1,15 @@
-//
-// Created by chen on 2021/11/7.
-//
+/*******************************************************
+ *
+ * Copyright (C) 2022, Chen Jianqu, Shanghai University
+ *
+ * This file is part of Tracking_Solov2_Deepsort.
+ *
+ * Licensed under the MIT License;
+ * you may not use this file except in compliance with the License.
+ *******************************************************/
+
+
+
 #include <iostream>
 #include <NvOnnxParser.h>
 #include <NvInferPlugin.h>
