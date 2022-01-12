@@ -3,7 +3,7 @@ This project implement the Multi-Object-Tracking(MOT) base on SOLOv2 and DeepSOR
 The instance segmentation model SOLOv2 has deploy to TensorRT, and the postprocess implement with 
 Libtorch. Therefore, the frame rate of detection and tracking can exceed 40 FPS。
 Test video was showed [here](https://www.bilibili.com/video/BV1Ki4y1Z7PC)
-
+![tracking](https://github.com/chenjianqu/Tracking-Solov2-Deepsort/blob/master/config/tracking.png)
 
 ## Requirements
 * Ubuntu
