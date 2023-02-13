@@ -59,7 +59,10 @@ public:
     }
 
     std::vector<std::tuple<int, int>>
-    update(const std::vector<InstInfo> &dets,const DistanceMetricFunc &confirmed_metric, const DistanceMetricFunc &unconfirmed_metric) {
+    update(const std::vector<InstInfo> &dets,const DistanceMetricFunc &confirmed_metric, const DistanceMetricFunc &unconfirmed_metric)
+    {
+        //cout<<"update 0"<<endl;
+
         std::vector<int> unmatched_trks;
         for (size_t i = 0; i < data.size(); ++i) {
             if (data[i].kalman.state() == TrackState::Confirmed) {
@@ -67,12 +70,18 @@ public:
             }
         }
 
+        //cout<<"update 1"<<endl;
+
         std::vector<int> unmatched_dets(dets.size());
         iota(unmatched_dets.begin(), unmatched_dets.end(), 0);
+
+        //cout<<"update 2"<<endl;
 
         std::vector<std::tuple<int, int>> matched;
 
         associate_detections_to_trackers_idx(confirmed_metric, unmatched_trks, unmatched_dets, matched);
+
+        //cout<<"update 3"<<endl;
 
         for (size_t i = 0; i < data.size(); ++i) {
             if (data[i].kalman.state() == TrackState::Tentative) {
@@ -80,7 +89,11 @@ public:
             }
         }
 
+        //cout<<"update 4"<<endl;
+
         associate_detections_to_trackers_idx(unconfirmed_metric, unmatched_trks, unmatched_dets, matched);
+
+        //cout<<"update 5"<<endl;
 
         for (auto i : unmatched_trks) {
             data[i].kalman.miss();
@@ -101,6 +114,8 @@ public:
             t.info = dets[umd];
             data.emplace_back(t);
         }
+
+        //cout<<"update 6"<<endl;
 
         return matched;
     }

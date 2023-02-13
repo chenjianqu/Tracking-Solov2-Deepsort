@@ -14,7 +14,7 @@ import numpy as np
 
 
 
-model_path="./ckpt.t7"
+model_path="./newest_ckpt.t7"
 
 state_dict = torch.load(model_path)["net_dict"]
 

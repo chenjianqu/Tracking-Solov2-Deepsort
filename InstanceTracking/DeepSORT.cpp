@@ -61,6 +61,8 @@ vector<InstInfo> DeepSORT::update(const std::vector<InstInfo> &detections, cv::M
     manager->predict();
     manager->remove_nan();
 
+    sgLogger->debug("start manager->update()");
+
     auto matched = manager->update(
             detections,
             [this, &detections, &ori_img](const std::vector<int> &trk_ids, const std::vector<int> &det_ids) {
@@ -77,6 +79,10 @@ vector<InstInfo> DeepSORT::update(const std::vector<InstInfo> &detections, cv::M
 
                 auto iou_mat = iou_dist(dets, trks);
                 auto feat_mat = feat_metric->distance(extractor->extract(boxes), trk_ids);
+
+                //cout<<"feat_mat:"<<endl;
+                //cout<<feat_mat<<endl;
+
                 feat_mat.masked_fill_((iou_mat > 0.8f).__ior__(feat_mat > 0.2f), INVALID_DIST);
                 return feat_mat;
             },
@@ -100,6 +106,9 @@ vector<InstInfo> DeepSORT::update(const std::vector<InstInfo> &detections, cv::M
         targets.emplace_back(x);
         boxes.emplace_back(ori_img(detections[y].rect));
     }
+
+    //sgLogger->debug("start feat_metric->update()");
+
     feat_metric->update(extractor->extract(boxes), targets);
 
     manager->remove_deleted();

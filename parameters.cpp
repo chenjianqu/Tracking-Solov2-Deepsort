@@ -88,6 +88,11 @@ Config::Config(const std::string &file_name)
     fs["TRACKING_N_INIT"]>>TRACKING_N_INIT;
     fs["TRACKING_MAX_AGE"]>>TRACKING_MAX_AGE;
 
+    fs["use_trace_model"]>>use_trace_model;
+
+    fs["reid_img_width"]>>kReidImgWidth;
+    fs["reid_img_height"]>>kReidImgHeight;
+
     fs.release();
 
     CocoLabelVector.reserve(CocoLabelMap.size());

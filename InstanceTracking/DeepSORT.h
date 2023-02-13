@@ -67,6 +67,10 @@ public:
     explicit FeatureMetric(std::vector<TrackData> &data) : data(data) {}
 
     torch::Tensor distance(torch::Tensor features, const std::vector<int> &targets) {
+
+        //cout<<"distance:"<<endl;
+        //cout<<features<<endl;
+
         auto dist = torch::empty({int64_t(targets.size()), features.size(0)});
         if (features.size(0)) {
             for (size_t i = 0; i < targets.size(); ++i) {

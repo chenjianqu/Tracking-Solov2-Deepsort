@@ -1,10 +1,10 @@
 %YAML:1.0
 
-image_width: 1226
-image_height: 370
+image_width: 1242
+image_height: 375
 
 #SOLO
-onnx_path: "/home/chen/ws/dynamic_ws/src/dynamic_vins/weights/SOLOv2_light_R34_1152x384_cuda102.onnx"
+onnx_path: "/home/chen/CLionProjects/Tracking-Solov2-Deepsort/weights/SOLOv2_light_R34_1152x384_cuda102.onnx"
 serialize_path: "./tensorrt_model_1152x384.bin"
 SOLO_NMS_PRE: 500
 SOLO_MAX_PER_IMG: 100
@@ -19,9 +19,19 @@ segmentor_log_path: "./segmentor_log.txt"
 segmentor_log_level: "debug"
 segmentor_log_flush: "debug"
 
-DATASET_DIR: "/media/chen/EC4A17F64A17BBF0/datasets/kitti/odometry/colors/07/image_2/"
+DATASET_DIR: "/home/chen/datasets/kitti/tracking/data_tracking_image_2/training/image_02/0004/"
 WARN_UP_IMAGE_PATH: "/home/chen/CLionProjects/Tracking-Solov2-Deepsort/config/kitti.png"
 
-EXTRACTOR_MODEL_PATH: "/home/chen/CLionProjects/Tracking-Solov2-Deepsort/config/ckpt.bin"
+use_trace_model: 0 #if you use the jit model
+reid_img_width: 64
+reid_img_height: 128
+EXTRACTOR_MODEL_PATH: "/home/chen/CLionProjects/Tracking-Solov2-Deepsort/weights/ckpt.bin"
+
+#use_trace_model: 1 #if you use the jit model
+#reid_img_width: 128
+#reid_img_height: 64
+#EXTRACTOR_MODEL_PATH: "/home/chen/CLionProjects/Tracking-Solov2-Deepsort/weights/trace.pt"
+
+
 TRACKING_MAX_AGE: 30
 TRACKING_N_INIT: 3

@@ -16,19 +16,9 @@
 #include <vector>
 #include <string>
 
-struct NetImpl : torch::nn::Module {
-public:
-    NetImpl();
-
-    torch::Tensor forward(torch::Tensor x);
-
-    void load_form(const std::string &bin_path);
-
-private:
-    torch::nn::Sequential conv1{nullptr}, conv2{nullptr};
-};
-
-TORCH_MODULE(Net);
+#include "reid_models/car_reid_net.h"
+#include "reid_models/people_reid_net.h"
+#include "reid_models/trace_reid_net.h"
 
 class Extractor {
 public:
@@ -38,6 +28,8 @@ public:
 
 private:
     Net net;
+    //CarReIdNet net;
+    TraceReidNet trace_net;
 };
 
 

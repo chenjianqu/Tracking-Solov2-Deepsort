@@ -129,7 +129,6 @@ public:
     inline static float SOLO_MASK_THR;
     inline static float SOLO_UPDATE_THR;
 
-
     inline static std::atomic_bool ok{true};
 
     inline static string DATASET_DIR;
@@ -138,6 +137,11 @@ public:
     inline static int TRACKING_MAX_AGE;
     inline static int TRACKING_N_INIT;
     inline static string EXTRACTOR_MODEL_PATH;
+
+    inline static bool use_trace_model{false};
+
+    inline static int kReidImgWidth;
+    inline static int kReidImgHeight;
 
 };
 

@@ -143,4 +143,21 @@ void draw_bbox(cv::Mat &img, const cv::Rect2f& bbox,const std::string &label = "
      return {color_rd(rde),color_rd(rde),color_rd(rde)};
  }
 
+
+
+ template <typename T>
+ static std::string DimsToStr(torch::ArrayRef<T> list){
+     int i = 0;
+     std::string text= "[";
+     for(auto e : list) {
+         if (i++ > 0) text+= ", ";
+         text += std::to_string(e);
+     }
+     text += "]";
+     return text;
+ }
+
+
+
+
 #endif //DYNAMIC_VINS_UTILS_H

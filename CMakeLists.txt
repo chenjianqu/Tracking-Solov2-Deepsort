@@ -33,8 +33,9 @@ include_directories(${TensorRT_INCLUDE_DIRS})
 
 aux_source_directory(InstanceSegment InstanceSegmentation_SOURCES)
 aux_source_directory(InstanceTracking InstanceTracking_SOURCES)
+aux_source_directory(InstanceTracking/reid_models reid_models_SOURCES)
 
-add_executable(tracking tracking.cpp parameters.cpp utils.cpp  ${InstanceSegmentation_SOURCES} ${InstanceTracking_SOURCES})
+add_executable(tracking tracking.cpp parameters.cpp utils.cpp  ${InstanceSegmentation_SOURCES} ${InstanceTracking_SOURCES} ${reid_models_SOURCES})
 target_link_libraries(tracking  ${OpenCV_LIBS} ${spdlog_LIBRARIES}  ${CUDA_LIBRARIES}
         ${TORCH_LIBRARIES} ${TensorRT_LIBS} )
 
