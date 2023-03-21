@@ -65,12 +65,6 @@ struct InstInfo{
     cv::Point2f min_pt,max_pt;
     cv::Rect2f rect;
     float prob;
-
-    cv::Point2f mask_center;
-
-    cv::Mat mask_cv;
-    cv::cuda::GpuMat mask_gpu;
-    torch::Tensor mask_tensor;
 };
 
 
